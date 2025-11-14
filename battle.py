@@ -1,3 +1,14 @@
+import pokemon_battle.monster as monster
+class MonTeam:
+    team = []
+    def __init__(self, teamArr):
+        pass 
+    
+    def addToTeam(mon):
+        
+
+
+# class Battle:
 
 team = ["pikachu", "mewtwo"] #POKEMONS NO TIME
 teambot = ["mewtwo", "pikachu"]

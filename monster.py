@@ -1,4 +1,4 @@
-class Monsters():
+class Monster():
     pokemon = {
         "pikachu": {
             "type": ["electric"],
