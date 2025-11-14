@@ -1,30 +1,9 @@
-pokemon = {
-    "pikachu": {
-        "type": ["electric"],
-        "hp": 74,
-        "attack": 55,
-        "defense": 40,
-        "spattack": 50,
-        "spdefense": 50,
-        "speed": 90,
-        "moves": {
-            "Quick attack" : {
-                "type": "normal",
-                "power": 50,
-                "accuracy": 100,
-                "priority": -1,
-                "status": ""
-            },
-            "Thunder": {
-                "type": "electric",
-                "power": 70,
-                "accuracy": 70,
-                "priority": 1,
-                "status": {"paralyzed": 10}
-            }
-        }
-    }
-}
+
+team = ["pikachu", "mewtwo"] #POKEMONS NO TIME
+teambot = ["mewtwo", "pikachu"]
+pokemon_selected = 0
+pokemon_selected_bot = 1
+battle_over = False
 
 #feito pelo gpt pq vai tomar no cu de digitar td isso
 type_chart = {
@@ -132,7 +111,50 @@ def has_no_effect(attacker, defender):
 
 
 def main():
-    print(has_no_effect("normal", "ghost"))
+    start_battle()
     return 0
 
+def turn(player):
+    if player ==1:
+        yourpokemon = pokemon[team[pokemon_selected]]
+        print("{0} - {1}".format(team[pokemon_selected].capitalize(), pokemon[team[pokemon_selected]]["hp"]))
+        action = createmenu("turn", yourpokemon)
+        match action:
+            case "1":
+                attack(createmenu("attack", yourpokemon))
+                
+        return 1
+    return 0
+
+def createmenu(menu, pokemon):
+    match menu:
+        case "turn":
+            print("1 - Attack")
+            print("2 - Bag")
+            print("3 - Run")
+        case "attack":
+            i =1
+            for move in pokemon["moves"]:
+                print("{0} - {1}".format(i, move))
+                i+=1
+    
+    optionselected = input("Select option: ")
+    return optionselected
+
+def attack(pokemon, move):
+    return 0
+
+def start_battle():
+    print("Battle starting...")
+    turn(1)
+    # while battle_over == False:
+        
+
+
+
+
+
+
+
 main()
+
