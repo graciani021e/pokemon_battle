@@ -76,11 +76,17 @@ class Monster():
         return self.pokemon[mon]
     
     def getMonByNumber(self, number):
-        return {
+        obj = {
             0: self.pokemon["pikachu"],
             1: self.pokemon["mewtwo"],
             2: self.pokemon["meowscarada"]
-        }[number]
+        }
+        try:
+            obj[number]
+        except:
+            print("Digite Novamente...")
+            exit()
+        return obj[number]
     
     def getMons(self):
         return self.pokemon.keys()
