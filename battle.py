@@ -19,6 +19,8 @@ class Battle:
         pass
     
     def createTeam(self, monnumber):
+        if monnumber == 10:
+            exit()
         self.monTeamManager.addToTeam(monnumber)
         self.playerTeam = self.monTeamManager.getTeam()
         pprint.pprint(self.playerTeam)
