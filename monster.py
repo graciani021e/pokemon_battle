@@ -68,7 +68,12 @@ class Monster():
             "speed": 110        
             }   
     }
+    
     def getMon(self, mon):
         return self.pokemon[mon]
+    
+    def getMons(self):
+        return self.pokemon.keys()
+    
     def __init__(self):
         pass
