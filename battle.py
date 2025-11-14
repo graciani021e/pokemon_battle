@@ -1,34 +1,39 @@
-import monster
 import pprint
-
-class MonTeam:
-    team = []
-    def __init__(self):
-        pass
-    
-    def addToTeam(self, mon):
-        self.team.append(monster.Monster().getMonByNumber(mon))
-
-    def getTeam(self):
-        return self.team
+import team
+import menu
 
 class Battle:
     playerTeam = []
-    monTeamManager = MonTeam()
+    teamManager = team.Team()
+    menuManager = menu.Menu()
+    fight = False
+    turn = 0
     def __init__(self):
         pass
     
     def createTeam(self, monnumber):
         if monnumber == 10:
             exit()
-        self.monTeamManager.addToTeam(monnumber)
-        self.playerTeam = self.monTeamManager.getTeam()
+        self.teamManager.addToTeam(monnumber)
+        self.playerTeam = self.teamManager.getTeam()
         pprint.pprint(self.playerTeam)
         
-    def startBattle(self, team):
-        self.createTeam(team)
+    def startBattle(self):
+        self.fight = True
+        while(self.fight == True):
+            self.doTurn()
+            self.fight = False
+            self.changeTurn()
         
     def getTeamSize(self):
-        return len(self.monTeamManager.getTeam())
+        return len(self.teamManager.getTeam())
     
+    def changeTurn(self):
+        if self.turn == 1:
+            self.turn = 0
+        else:
+            self.turn = 1
+            
+    def doTurn(self):
+        action = input(self.menuManager.createActionMenu())
     

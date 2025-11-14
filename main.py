@@ -7,6 +7,7 @@ class Main:
     
     def __init__(self):
         self.buildTeam()
+        self.battleManager.startBattle()
         pass
     
     def buildTeam(self):
