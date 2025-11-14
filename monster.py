@@ -1,5 +1,4 @@
-class Monster():
-    
+class Monster():    
     pokemon = {
         "pikachu": {
             "name": "pikachu",
