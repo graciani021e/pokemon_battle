@@ -69,8 +69,19 @@ class Monster():
             }   
     }
     
-    def getMon(self, mon):
+    def getMonByName(self, mon):
+        try:
+            self.pokemon[mon]
+        except:
+            return "Digite Novamente"
         return self.pokemon[mon]
+    
+    def getMonByNumber(self, number):
+        return {
+            0: self.pokemon["pikachu"],
+            1: self.pokemon["mewtwo"],
+            2: self.pokemon["meowscarada"]
+        }[number]
     
     def getMons(self):
         return self.pokemon.keys()

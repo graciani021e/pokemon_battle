@@ -3,29 +3,30 @@ import pprint
 
 class MonTeam:
     team = []
-    def __init__(self, teamArr):
-        for mon in teamArr:
-            self.addToTeam(mon)
+    def __init__(self):
+        pass
     
     def addToTeam(self, mon):
-        self.team.append(monster.Monster().getMon(mon))
+        self.team.append(monster.Monster().getMonByNumber(mon))
 
     def getTeam(self):
         return self.team
 
-# class Battle:
 class Battle:
     playerTeam = []
+    monTeamManager = MonTeam()
     def __init__(self):
         pass
     
-    def createTeam(self, team):
-        team = team.split(",")
-        self.playerTeam = MonTeam(team).getTeam()
-        print(self.playerTeam)
+    def createTeam(self, monnumber):
+        self.monTeamManager.addToTeam(monnumber)
+        self.playerTeam = self.monTeamManager.getTeam()
+        pprint.pprint(self.playerTeam)
         
     def startBattle(self, team):
         self.createTeam(team)
         
+    def getTeamSize(self):
+        return len(self.monTeamManager.getTeam())
     
     
