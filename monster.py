@@ -1,6 +1,8 @@
 class Monster():
+    
     pokemon = {
         "pikachu": {
+            "name": "pikachu",
             "type": ["electric"],
                 "hp": 74,
                 "attack": 55,
@@ -28,6 +30,7 @@ class Monster():
                 }
             }, 
         "mewtwo": {
+            "name": "mewtwo",
             "type": ["psychic"],
             "hp": 120,
             "attack": 20,
@@ -55,6 +58,7 @@ class Monster():
             }
         },
         "meowscarada": {
+            "name": "meowscarada",
             "type": ["dark", "grass"],
             "hp": 100,
             "attack": 20,
@@ -64,3 +68,7 @@ class Monster():
             "speed": 110        
             }   
     }
+    def getMon(self, mon):
+        return self.pokemon[mon]
+    def __init__(self):
+        pass
