@@ -8,7 +8,6 @@ class MonTeam:
             self.addToTeam(mon)
     
     def addToTeam(self, mon):
-        # print(monster.Monster(mon))
         self.team.append(monster.Monster().getMon(mon))
 
     def getTeam(self):
@@ -16,14 +15,17 @@ class MonTeam:
 
 # class Battle:
 class Battle:
-    
+    playerTeam = []
     def __init__(self):
-        self.createTeam()
         pass
     
-    def createTeam():
-        team1 = MonTeam(["pikachu", "mewtwo"]).getTeam()
-        pprint.pprint(team1)
+    def createTeam(self, team):
+        team = team.split(",")
+        self.playerTeam = MonTeam(team).getTeam()
+        print(self.playerTeam)
         
-Battle.createTeam()
+    def startBattle(self, team):
+        self.createTeam(team)
+        
+    
     
