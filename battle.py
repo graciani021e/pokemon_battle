@@ -4,20 +4,14 @@ import menu
 
 class Battle:
     playerTeam = []
-    teamManager = team.Team()
-    menuManager = menu.Menu()
-    fight = False
+    teamManager = None
+    menuManager = None
     turn = 0
     def __init__(self):
+        self.teamManager = team.Team()
+        self.menuManager = menu.Menu()
         pass
-    
-    def createTeam(self, monnumber):
-        if monnumber == 10:
-            exit()
-        self.teamManager.addToTeam(monnumber)
-        self.playerTeam = self.teamManager.getTeam()
-        pprint.pprint(self.playerTeam)
-        
+            
     def startBattle(self):
         self.fight = True
         while(self.fight == True):

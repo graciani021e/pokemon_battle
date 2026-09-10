@@ -74,6 +74,9 @@ class Monster():
         except:
             return "Digite Novamente"
         return self.pokemon[mon]
+
+    def getName(self, mon):
+        return self.pokemon[mon]["name"]
     
     def getMonByNumber(self, number):
         obj = {

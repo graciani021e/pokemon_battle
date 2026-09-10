@@ -2,18 +2,12 @@ import battle
 import menu
 
 class Main:
-    MAX_TEAM_SIZE = 3
     battleManager = battle.Battle()
-    
+
     def __init__(self):
-        self.buildTeam()
+        print('Welcome to the Pokemon Battle Game!')
         self.battleManager.startBattle()
-        pass
-    
-    def buildTeam(self):
-        while(self.battleManager.getTeamSize() < self.MAX_TEAM_SIZE):
-            monNumber = int(input(menu.Menu().createMonSelectMenu()))
-            self.battleManager.createTeam(monNumber)
+        pass    
     
 Main()
         
