@@ -1,10 +1,7 @@
-from pprint import pprint
-
 import monster
 import menu
 import const
 import random
-import numpy as np
 
 class Team:
     team = []

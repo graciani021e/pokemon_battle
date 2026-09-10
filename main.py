@@ -1,6 +1,4 @@
 import battle
-import menu
-import const
 
 class Main:
     battleManager = None
