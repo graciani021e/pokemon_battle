@@ -4,12 +4,14 @@ import menu
 
 class Battle:
     playerTeam = []
+    opponentTeam = []
     teamManager = None
-    menuManager = None
     turn = 0
     def __init__(self):
-        self.teamManager = team.Team()
-        self.menuManager = menu.Menu()
+        self.playerTeam = team.Team()
+        self.opponentTeam = team.Team(player=False)
+        print("Player Team: {}".format(self.playerTeam.getTeam()))
+        print("Opponent Team: {}".format(self.opponentTeam.getTeam()))
         pass
             
     def startBattle(self):
@@ -18,10 +20,7 @@ class Battle:
             self.doTurn()
             self.fight = False
             self.changeTurn()
-        
-    def getTeamSize(self):
-        return len(self.teamManager.getTeam())
-    
+            
     def changeTurn(self):
         if self.turn == 1:
             self.turn = 0
@@ -29,5 +28,5 @@ class Battle:
             self.turn = 1
             
     def doTurn(self):
-        action = input(self.menuManager.createActionMenu())
+        action = input(menu.createActionMenu())
     
