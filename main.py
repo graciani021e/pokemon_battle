@@ -2,10 +2,10 @@ import battle
 import menu
 
 class Main:
-    battleManager = battle.Battle()
-
+    battleManager = None
     def __init__(self):
-        print('Welcome to the Pokemon Battle Game!')
+        print('Welcome to the Pokemon Battle Game!\n\n')
+        self.battleManager = battle.Battle()
         self.battleManager.startBattle()
         pass    
     
