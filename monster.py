@@ -1,7 +1,16 @@
+import const
+
+
 class Monster():    
+
+    def __init__(self):
+        pass
+
     pokemon = {
         "pikachu": {
             "name": "pikachu",
+            "id": 1,
+            "tier": const.TIERS["basic"],
             "type": ["electric"],
                 "hp": 74,
                 "attack": 55,
@@ -28,8 +37,40 @@ class Monster():
                     }
                 }
             }, 
+        "caterpie": {
+            "name": "caterpie",
+            "id": 2,
+            "tier": const.TIERS["basic"],
+            "type": ["bug"],
+                "hp": 45,
+                "attack": 30,
+                "defense": 40,
+                "spattack": 50,
+                "spdefense": 50,
+                "speed": 90,
+                "moves": {
+                    "Quick attack" : {
+                        "type": "normal",
+                        "power": 50,
+                        "accuracy": 100,
+                        "priority": -1,
+                        "status": "",
+                        "pp": 25 #TODO: PP ENDING
+                    },
+                    "Thunder": {
+                        "type": "electric",
+                        "power": 70,
+                        "accuracy": 70,
+                        "priority": 1,
+                        "status": {"paralyzed": 10},
+                        "pp": 25 #TODO: PP ENDING
+                    }
+                }
+            }, 
         "mewtwo": {
             "name": "mewtwo",
+            "id": 3,
+            "tier": const.TIERS["godlike"],
             "type": ["psychic"],
             "hp": 120,
             "attack": 20,
@@ -58,6 +99,8 @@ class Monster():
         },
         "meowscarada": {
             "name": "meowscarada",
+            "id": 4,
+            "tier": const.TIERS["medium"],
             "type": ["dark", "grass"],
             "hp": 100,
             "attack": 20,
@@ -78,21 +121,11 @@ class Monster():
     def getName(self, mon):
         return self.pokemon[mon]["name"]
     
-    def getMonByNumber(self, number):
-        obj = {
-            0: self.pokemon["pikachu"],
-            1: self.pokemon["mewtwo"],
-            2: self.pokemon["meowscarada"]
-        }
-        try:
-            obj[number]
-        except:
-            print("Digite Novamente...")
-            exit()
-        return obj[number]
+    def getMonById(self, id):
+        return [mon for mon in self.pokemon.values() if mon["id"] == id][0]
+
+    def getMonsByTier(self, tier):
+        return [mon for mon in self.pokemon.values() if mon["tier"] == tier]
     
     def getMons(self):
-        return self.pokemon.keys()
-    
-    def __init__(self):
-        pass
+        return [{"id": mon["id"], "name": mon["name"]} for mon in self.pokemon.values()]

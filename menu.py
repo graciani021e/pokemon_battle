@@ -1,22 +1,29 @@
 import monster
+import const
 
 class Menu:
-    ACTIONS = {1: "attack", 2: "forfeit"}
     def __init__(self):
         pass
     
     def createMonSelectMenu(self):
         m = monster.Monster()
+        print(m.getMons())
         message = "Digite o número do pokemon desejado (Max: 3)\n"
-        for i, mon in enumerate(m.getMons()):
-            message+= "{} - {}\n".format(i, mon.capitalize())
+        for mon in m.getMons():
+            message+= "{} - {}\n".format(mon["id"], mon["name"].capitalize())
         message+= "10 - Sair\n"
         return message
     
     def createActionMenu(self):            
         message = "\n\n"
-        for acIndex in self.ACTIONS:
-            message+= "{} - {}\n".format(acIndex, self.ACTIONS[acIndex].capitalize())
+        for acIndex in const.ACTIONS:
+            message+= "{} - {}\n".format(acIndex, const.ACTIONS[acIndex].capitalize())
+        return message
+    
+    def createModeMenu(self):            
+        message = "\n\n"
+        for acIndex in const.BOT["MODES"]:
+            message+= "{} - {}\n".format(acIndex, const.BOT["MODES"][acIndex].capitalize())
         return message
     
     def createAttackMenu(self, menu, pokemon):
