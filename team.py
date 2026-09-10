@@ -4,10 +4,13 @@ import const
 import random
 
 class Team:
+    
     team = []
     MAX_TEAM_SIZE = 3
-    def __init__(self, player = True): #Sempre que usar new team, um time novo é criado
-        self.team = []
+
+    #Sempre que usar new team, um time novo é criado
+    def __init__(self, player = True):
+        self.team = [] #Reseta variável para não afetar o próximo player
         print("Criando novo time")
         if player:
             self.buildTeamPlayer()
@@ -29,9 +32,10 @@ class Team:
     def getTeamSize(self):
         return len(self.team)
 
+    #Cria time do player usando interface de texto
     def buildTeamPlayer(self):
-        while(self.getTeamSize() < const.TEAM["MAX_TEAM_SIZE"]):
-            monId = int(input(menu.Menu().createMonSelectMenu()))
+        while(self.getTeamSize() < const.TEAM["MAX_TEAM_SIZE"]): #Enquanto o time não estiver preenchido
+            monId = int(input(menu.Menu().createMonSelectMenu())) #Captura ID do mon de acordo com digitado na interface
             self.addToTeam(monId)
         print(self.getTeam())
         pass
