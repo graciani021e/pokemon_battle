@@ -1,5 +1,8 @@
-import const
-
+TIERS = {
+    "basic": 1,
+    "medium": 2,
+    "godlike": 3
+}
 
 class Monster():  
 
@@ -22,8 +25,8 @@ class Monster():
         self.stats = data["stats"]
         self.moves = data["moves"]
 
-        print("pokemon data")
-        print(self.name, self.types, self.stats, self.moves)
+        # print("pokemon data")
+        # pprint.pprint([self.name, self.types, self.stats, self.moves])
         pass
 
 
@@ -31,7 +34,7 @@ monster = {
     "pikachu": {
         "name": "pikachu",
         "id": 1,
-        "tier": const.TIERS["basic"],
+        "tier": TIERS["basic"],
         "types": ["electric"],
         "stats": {
             "hp": 74,
@@ -63,7 +66,7 @@ monster = {
     "caterpie": {
         "name": "caterpie",
         "id": 2,
-        "tier": const.TIERS["basic"],
+        "tier": TIERS["basic"],
         "types": ["bug"],
         "stats": { 
             "hp": 45,
@@ -95,7 +98,7 @@ monster = {
     "mewtwo": {
         "name": "mewtwo",
         "id": 3,
-        "tier": const.TIERS["godlike"],
+        "tier": TIERS["godlike"],
         "types": ["psychic"],
         "stats": {
             "hp": 120,
@@ -127,7 +130,7 @@ monster = {
     "meowscarada": {
         "name": "meowscarada",
         "id": 4,
-        "tier": const.TIERS["medium"],
+        "tier": TIERS["medium"],
         "types": ["dark", "grass"],
         "stats": {
             "hp": 100,
