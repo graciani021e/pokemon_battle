@@ -28,4 +28,6 @@ class Battle:
             
     def doTurn(self):
         action = input(menu.createActionMenu())
+
+    
     

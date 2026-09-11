@@ -19,16 +19,16 @@ class Team:
             self.buildTeamBot(mode)
         pass
 
-    #Adiciona pokemon ao time
+    #Adiciona um monstro ao time
     def addToTeam(self, monId):
-        return self.team.append(monster.Monster().getMonById(monId))
+        return self.team.append(monster.getMonById(monId))
 
-    #Retorna os nomes dos pokemons que estão no time
+    #Retorna os nomes dos monstros que estão no time
     def getTeam(self):
         return [mon["name"] for mon in self.team]
 
     #Retorna tamanho atual do time
-    #TODO: Diminuir número assim que pokemon não tiver HP
+    #TODO: Diminuir número assim que um monstro não tiver HP
     def getTeamSize(self):
         return len(self.team)
 
@@ -50,8 +50,8 @@ class Team:
             key=lambda 
             i: abs(list(const.TIERS.values())[i] - (remainingPoints/(const.TEAM["MAX_TEAM_SIZE"]-self.getTeamSize()))))
 
-            #Seleciona um pokemon entre varios outros do mesmo tier, como o resultado é o index eu acrescento em um para pegar o valor do tier
-            chosenMon = random.choice(monster.Monster().getMonsByTier(highestPossiblePointChoice+1)) 
+            #Seleciona um monsro entre varios outros do mesmo tier, como o resultado é o index eu acrescento em um para pegar o valor do tier
+            chosenMon = random.choice(monster.getMonsByTier(highestPossiblePointChoice+1)) 
             self.addToTeam(chosenMon["id"])
             remainingPoints-= highestPossiblePointChoice+1 #decresce os pontos disponíveis pelo tier
         pass

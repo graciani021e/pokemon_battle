@@ -6,7 +6,7 @@ class Monster():
     def __init__(self):
         pass
 
-    pokemon = {
+    monster = {
         "pikachu": {
             "name": "pikachu",
             "id": 1,
@@ -111,27 +111,35 @@ class Monster():
             }   
     }
     
-    def getMonByName(self, mon):
-        try:
-            self.pokemon[mon]
-        except:
-            return "Digite Novamente"
-        return self.pokemon[mon]
 
-    def getName(self, mon):
-        return self.pokemon[mon]["name"]
+    #Começo funções de ataque
     
-    def getMonById(self, id):
-        return [mon for mon in self.pokemon.values() if mon["id"] == id][0]
 
-    def getMonsByTier(self, tier):
-        return [mon for mon in self.pokemon.values() if mon["tier"] == tier]
-    
-    def getMons(self):
-        return [{"id": mon["id"], "name": mon["name"]} for mon in self.pokemon.values()]
+
 
     #getAttackModifier("normal", "ghost") = 0
     #getAttackModifier("fire", "water") = 0.5
     #getAttackModifier("water", "fire") = 2
     #danofinal = danoataque * getAttackModifier
     #
+
+
+
+def getMonByName(self, mon):
+    try:
+        self.monster[mon]
+    except:
+        return "Digite Novamente"
+    return self.monster[mon]
+
+def getName(self, mon):
+    return self.monster[mon]["name"]
+
+def getMonById(self, id):
+    return [mon for mon in self.monster.values() if mon["id"] == id][0]
+
+def getMonsByTier(self, tier):
+    return [mon for mon in self.monster.values() if mon["tier"] == tier]
+
+def getMons(self):
+    return [{"id": mon["id"], "name": mon["name"]} for mon in self.monster.values()]

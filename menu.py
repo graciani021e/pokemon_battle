@@ -6,10 +6,9 @@ class Menu:
         pass
     
     def createMonSelectMenu(self):
-        m = monster.Monster()
-        print(m.getMons())
-        message = "Digite o número do pokemon desejado (Max: 3)\n"
-        for mon in m.getMons():
+        print(monster.getMons())
+        message = "Digite o número do monstro desejado (Max: 3)\n"
+        for mon in monster.getMons():
             message+= "{} - {}\n".format(mon["id"], mon["name"].capitalize())
         message+= "10 - Sair\n"
         return message
@@ -26,9 +25,9 @@ class Menu:
             message+= "{} - {}\n".format(acIndex, const.BOT["MODES"][acIndex].capitalize())
         return message
     
-    def createAttackMenu(self, menu, pokemon):
+    def createAttackMenu(self, menu, monster):
         i =1
-        for move in pokemon["moves"]:
+        for move in monster["moves"]:
             print("{0} - {1}".format(i, move))
             i+=1
     
