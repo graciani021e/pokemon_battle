@@ -134,3 +134,4 @@ class Monster():
     #getAttackModifier("fire", "water") = 0.5
     #getAttackModifier("water", "fire") = 2
     #danofinal = danoataque * getAttackModifier
+    #
