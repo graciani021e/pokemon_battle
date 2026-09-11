@@ -129,3 +129,8 @@ class Monster():
     
     def getMons(self):
         return [{"id": mon["id"], "name": mon["name"]} for mon in self.pokemon.values()]
+
+    #getAttackModifier("normal", "ghost") = 0
+    #getAttackModifier("fire", "water") = 0.5
+    #getAttackModifier("water", "fire") = 2
+    #danofinal = danoataque * getAttackModifier
