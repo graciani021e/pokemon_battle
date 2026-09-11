@@ -21,11 +21,12 @@ class Team:
 
     #Adiciona um monstro ao time
     def addToTeam(self, monId):
-        return self.team.append(monster.getMonById(monId))
+        newMon = monster.Monster(monster.getMonById(monId))
+        return self.team.append(newMon)
 
     #Retorna os nomes dos monstros que estão no time
     def getTeam(self):
-        return [mon["name"] for mon in self.team]
+        return [mon.name for mon in self.team]
 
     #Retorna tamanho atual do time
     #TODO: Diminuir número assim que um monstro não tiver HP
